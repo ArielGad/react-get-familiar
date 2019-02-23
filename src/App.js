@@ -17,7 +17,7 @@ class App extends Component {
     };
 
     handleCopy(e){
-        console.log("Try being original for once");
+        console.log("Try being original for once :)");
     };
 
     render(){

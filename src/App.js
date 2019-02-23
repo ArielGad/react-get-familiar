@@ -8,16 +8,18 @@ class App extends Component {
         fullName: function() {return this.firstName + " " + this.lastName}
     };
 
+    handleCopy = this.handleCopy.bind(this);
+
     handleClick(eventObject){
         console.log("This is the event -> " + eventObject.target);
     };
 
-    handleMouseOver(e){
-        console.log("This is the event mouse over-> " + e.target);
+    handleMouseOver = (e) => {
+        console.log("This is the event mouse over that was hovered by: " + this.state.firstName);
     };
 
     handleCopy(e){
-        console.log("Try being original for once :)");
+        console.log("Try being original for once " + this.state.firstName);
     };
 
     render(){

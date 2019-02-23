@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 
 class Ninjas extends Component {
     render(){
+        // destructuring assignment
+        const {name, age, belt} = this.props
         return(
         <div className="ninja">
-            <div>Name: Ariel</div>
-            <div>Age: 32</div>
-            <div>Belt: Black</div>
+            <div>Name: {name}</div>
+            <div>Age: {age}</div>
+            <div>Belt: {belt}</div>
         </div>
         )
     }

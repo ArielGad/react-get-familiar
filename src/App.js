@@ -5,31 +5,29 @@ class App extends Component {
     state = {
         firstName: "Ariel",
         lastName: "Gad",
-        fullName: function() {return this.firstName + " " + this.lastName}
     };
 
-    handleCopy = this.handleCopy.bind(this);
-
-    handleClick(eventObject){
-        console.log("This is the event -> " + eventObject.target);
+    handleChange = (e) =>{
+        this.setState({firstName: e.target.value});
     };
 
-    handleMouseOver = (e) => {
-        console.log("This is the event mouse over that was hovered by: " + this.state.firstName);
-    };
-
-    handleCopy(e){
-        console.log("Try being original for once " + this.state.firstName);
+    handleSubmit = (e) => {
+    //    prevents from the browser to refresh.
+    //    since it is the natural behavior of the submit
+        e.preventDefault();
+        console.log("Form submitted with value " + this.state.firstName)
     };
 
     render(){
         return (
             <div>
                 <h1>Hello, World!</h1>
-                <p>My name is: {this.state.fullName()}</p>
-                <button onClick={this.handleClick}>Click Me</button>
-                <button onMouseOver={this.handleMouseOver}>Hover Me</button>
-                <p onCopy={this.handleCopy}>What we think, we become</p>
+                <p>My name is: {this.state.firstName}</p>
+
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" onChange={this.handleChange}/>
+                    <button>Submit</button>
+                </form>
             </div>
         )
     }

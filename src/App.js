@@ -21,12 +21,31 @@ class App extends Component {
         })
     }
 
+    deleteNinja = (id) => {
+
+        // const newNinjaArray = []
+        // this.state.ninjas.forEach(ninjaObj => {
+        //     if (ninjaObj.id !== id){
+        //         newNinjaArray.push(ninjaObj);
+        //     }
+        // })
+        // this.setState({ninjas:newNinjaArray});
+
+
+        // filter is non destructive command
+        // it will return a new array
+        let newNinjaArray = this.state.ninjas.filter(ninjaObj => {
+            return ninjaObj.id !== id
+        })
+        this.setState({ninjas:newNinjaArray});
+    }
+
     render(){
         return (
             <div>
                 <h1>Hello, World!</h1>
                 <p>Welcome to my React mini project</p>
-                <Ninjas ninjas={this.state.ninjas}/>
+                <Ninjas deleteNinja={this.deleteNinja} ninjas={this.state.ninjas}/>
                 <AddNinja addNinja={this.addNinja}/>
             </div>
         )

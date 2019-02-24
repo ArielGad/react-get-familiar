@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Ninjas from './Ninjas';
+import AddNinja from './AddNinja';
 
 class App extends Component {
 
@@ -11,12 +12,22 @@ class App extends Component {
         ]
     }
 
+    addNinja = (ninjaObj) => {
+        ninjaObj.id = Math.random();
+        // let ninjasUpdated = [...this.state.ninjas, ninjaObj]
+        let ninjasUpdated = this.state.ninjas.slice().concat(ninjaObj)
+        this.setState({
+            ninjas: ninjasUpdated
+        })
+    }
+
     render(){
         return (
             <div>
                 <h1>Hello, World!</h1>
                 <p>Welcome to my React mini project</p>
                 <Ninjas ninjas={this.state.ninjas}/>
+                <AddNinja addNinja={this.addNinja}/>
             </div>
         )
     }
